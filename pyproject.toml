@@ -1,0 +1,19 @@
+[project]
+name = "polars-matrix"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Arnav Rastogi", email = "arnav.rastogi101@gmail.com" }
+]
+requires-python = ">=3.9"
+dependencies = []
+
+[tool.maturin]
+module-name = "polars_matrix._core"
+python-packages = ["polars_matrix"]
+python-source = "src"
+
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
