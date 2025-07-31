@@ -6,8 +6,10 @@ readme = "README.md"
 authors = [
     { name = "Arnav Rastogi", email = "arnav.rastogi101@gmail.com" }
 ]
-requires-python = ">=3.9"
-dependencies = []
+requires-python = ">=3.12"
+dependencies = [
+    "polars>=1.31.0",
+]
 
 [tool.maturin]
 module-name = "polars_matrix._core"
@@ -15,5 +17,11 @@ python-packages = ["polars_matrix"]
 python-source = "src"
 
 [build-system]
-requires = ["maturin>=1.0,<2.0"]
+requires = ["maturin>=1.0,<2.0", "polars>=1.31.0"]
 build-backend = "maturin"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.17.0",
+    "ruff>=0.12.7",
+]
