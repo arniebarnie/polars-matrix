@@ -9,12 +9,14 @@ authors = [
 requires-python = ">=3.12"
 dependencies = [
     "polars>=1.31.0",
+    "pyarrow>=21.0.0",
 ]
 
 [tool.maturin]
-module-name = "polars_matrix._core"
+features = ["pyo3/extension-module"]
+module-name = "polars_matrix._lib"
 python-packages = ["polars_matrix"]
-python-source = "src"
+# python-source = "polars_matrix"
 
 [build-system]
 requires = ["maturin>=1.0,<2.0", "polars>=1.31.0"]
@@ -23,5 +25,12 @@ build-backend = "maturin"
 [dependency-groups]
 dev = [
     "mypy>=1.17.0",
+    "pytest>=8.4.1",
     "ruff>=0.12.7",
 ]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

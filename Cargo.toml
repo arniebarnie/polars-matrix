@@ -4,15 +4,16 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
-name = "_core"
+name = "polars_matrix"
 # "cdylib" is necessary to produce a shared library for Python to import from.
 crate-type = ["cdylib"]
 
 [dependencies]
 arrow = "55.2.0"
-polars = "0.49.1"
+polars-arrow = "0.49.0"
+polars = { version = "0.49.0", features = ["dtype-array"] }
 # "extension-module" tells pyo3 we want to build an extension module (skips linking against libpython.so)
 # "abi3-py312" tells pyo3 (and maturin) to build using the stable ABI with minimum Python version 3.12
 pyo3 = { version = "0.25", features = ["extension-module", "abi3-py312"] }
-pyo3-polars = "0.22.0"
+pyo3-polars = { version = "0.22.0", features = ["derive", "dtype-array"] }
 serde = "1.0.219"

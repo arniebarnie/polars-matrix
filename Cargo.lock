@@ -1324,6 +1324,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "iter-read"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "071ed4cc1afd86650602c7b11aa2e1ce30762a1c27193201cb5cee9c6ebb1294"
+
+[[package]]
 name = "itertools"
 version = "0.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1777,6 +1783,7 @@ dependencies = [
  "polars-lazy",
  "polars-ops",
  "polars-parquet",
+ "polars-plan",
  "polars-sql",
  "polars-time",
  "polars-utils",
@@ -1921,6 +1928,16 @@ dependencies = [
  "rand 0.8.5",
  "rayon",
  "recursive",
+]
+
+[[package]]
+name = "polars-ffi"
+version = "0.49.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9efedbe3532eaf55459872c29c5c71adfb1a51356f6f6f9c6d29399985f38b61"
+dependencies = [
+ "polars-arrow",
+ "polars-core",
 ]
 
 [[package]]
@@ -2250,6 +2267,7 @@ version = "0.1.0"
 dependencies = [
  "arrow",
  "polars",
+ "polars-arrow",
  "pyo3",
  "pyo3-polars",
  "serde",
@@ -2370,8 +2388,28 @@ dependencies = [
  "polars",
  "polars-arrow",
  "polars-core",
+ "polars-ffi",
+ "polars-plan",
  "pyo3",
+ "pyo3-polars-derive",
+ "serde",
+ "serde-pickle",
  "thiserror 1.0.69",
+]
+
+[[package]]
+name = "pyo3-polars-derive"
+version = "0.16.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ca49b9a695e1e7b1a7c5a7a63846d073a19019c9f9ac54a7d75a8d0c1fe0f4d4"
+dependencies = [
+ "polars-arrow",
+ "polars-core",
+ "polars-ffi",
+ "polars-plan",
+ "proc-macro2",
+ "quote",
+ "syn",
 ]
 
 [[package]]
@@ -2854,6 +2892,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5f0e2c6ed6606019b4e29e69dbaba95b11854410e5347d525002456dbbb786b6"
 dependencies = [
  "serde_derive",
+]
+
+[[package]]
+name = "serde-pickle"
+version = "1.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b641fdc8bcf2781ee78b30c599700d64ad4f412976143e4c5d0b9df906bb4843"
+dependencies = [
+ "byteorder",
+ "iter-read",
+ "num-bigint",
+ "num-traits",
+ "serde",
 ]
 
 [[package]]
