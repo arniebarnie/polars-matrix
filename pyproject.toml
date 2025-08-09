@@ -12,11 +12,13 @@ dependencies = [
     "pyarrow>=21.0.0",
 ]
 
+[tool.uv]
+cache-keys = [{file = "pyproject.toml"}, {file = "Cargo.toml"}, {file = "**/*.rs"}]
+
 [tool.maturin]
 features = ["pyo3/extension-module"]
 module-name = "polars_matrix._lib"
 python-packages = ["polars_matrix"]
-# python-source = "polars_matrix"
 
 [build-system]
 requires = ["maturin>=1.0,<2.0", "polars>=1.31.0"]
